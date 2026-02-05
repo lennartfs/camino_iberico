@@ -8,7 +8,7 @@ function ster_leeg(n) {
 
 $(document).ready(function () {
   $.ajax({
-    url: "https://we12s016.ugent.be/flask/student_lefrerik/review_get",
+    url: "flask/app_roadtrip.py/review_get",
     type: "GET",
     dataType: "json",
     success: function (response) {
@@ -668,3 +668,4 @@ function geen_auto() {
   $("#huurprijs").html("0");
   $("#auto_eind").html("Geen auto");
 }
+
