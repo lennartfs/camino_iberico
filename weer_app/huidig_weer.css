@@ -1,0 +1,63 @@
+#bod {
+    background-image: url("clouds.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size:cover;
+}
+
+#icon {
+    border-radius: 8px;
+    background-color: white;
+}
+
+:root {
+  --bulma-primary-h: 197deg;
+  --bulma-primary-l: 80%;
+  --bulma-info-h: 170deg;
+  --bulma-info-s: 88%;
+  --bulma-info-l: 44%;
+}
+
+#tablet {
+    background-color:#edfcfb;
+}
+
+#tit {
+    color:white
+}
+
+.media-left {
+    background-color:white;
+    border-radius: 8px;
+}
+
+#adres {
+    border-radius: 0px;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    box-shadow: none;
+    background-color:rgb(255, 255, 255, 0);
+}
+
+#taal {
+    position: absolute;
+    z-index: 10;
+    margin: 15px;
+    padding: 30px
+}
+
+#eng {
+    border-radius: 30px;
+}
+
+#nl {
+    border-radius: 30px;
+}
+
+:root {
+    --bulma-link-h: 174deg;
+    --bulma-link-s: 73%;
+    --bulma-link-l: 20%;
+}

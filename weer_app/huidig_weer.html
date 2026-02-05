@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Weer App</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"/>
+    <script src="weer_opvraging.js"></script>
+    <link rel="stylesheet" href="huidig_weer.css" />
+</head>
+<body id="bod">
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-6">
+                <div class="box" style="background-color: rgb(255, 255, 255, 0.5)">
+                    <h3 class="title is-4" id="weerin">Het Weer In:</h3>
+                    <div class="field">
+                        <label class="label"><span style="color: #404654" id="locatie">Geef een locatie:</span></label>
+                        <div class="control">
+                            <div class="columns" style="margin: 5px">
+                                <div class="column is-1">
+                                    <i class="fa-solid fa-location-dot" style="font-size: 200%"></i>
+                                </div>
+                                <div class="column is-11">
+                                    <input class="input" type="text" placeholder="Brussel" id="adres"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="button is-link" id="zoek" onclick="opvraging()">
+                        Opzoeken
+                    </button>
+                </div>
+            </div>
+            <div class="column is-6">
+                <div class="box" style="background-color: rgb(255, 255, 255, 0.5)">
+                    <article class="message is-link">
+                        <div class="message-header">
+                            <h3 class="title is-5" id="tit">Op dit moment:</h3>
+                        </div>
+                        <div class="message-body">
+                            <table class="table" id="tablet">
+                                <tr>
+                                    <td><span id="desc"></span></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="" id="icon" /></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td id="tp">Temperatuur:</td>
+                                    <td><span id="temp">0</span> &deg;C</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td id="gtp">Gevoelstemperatuur:</td>
+                                    <td><span id="tempfeel">0</span> &deg;C</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Wind:</td>
+                                    <td><span id="wind">0</span> km/h</td>
+                                    <td><span id="wind_bft">0</span> bft</td>
+                                    <td>
+                                        <i class="fa-solid fa-location-arrow" style="transform: rotate3d(0, 0, 1, 315deg)" id="wind_icoon"></i><span id="wind_dir">XX</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
