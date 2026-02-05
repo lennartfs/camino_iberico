@@ -2,18 +2,19 @@ from flask import Flask, request, jsonify
 import psycopg2
 import json
 import smtplib
+import os
 from email.mime.text import MIMEText
 
 app = Flask(__name__)
 
-DB_CONFIG = {
-    "dbname": "student_lefrerik_1",
-    "user": "student_lefrerik",
-    "password": "lenneke",
-    "host": "we12s016.ugent.be",
-    "port": "5432",
-}
 
+DB_CONFIG = {
+    "dbname": os.getenv("DB_NAME"),
+    "user": os.getenv("DB_USER"),
+    "password": os.getenv("DB_PASSWORD"),
+    "host": os.getenv("DB_HOST"),
+    "port": os.getenv("DB_PORT"),
+}
 
 def prettier(value):
     return value.capitalize() if value != "pickup" else "Pick-Up"
@@ -394,3 +395,4 @@ def send_mail():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
