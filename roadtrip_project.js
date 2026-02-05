@@ -8,7 +8,7 @@ function ster_leeg(n) {
 
 $(document).ready(function () {
   $.ajax({
-    url: "flask/app_roadtrip.py",
+    url: "flask/review_get.py/review_get",
     type: "GET",
     dataType: "json",
     success: function (response) {
@@ -668,5 +668,6 @@ function geen_auto() {
   $("#huurprijs").html("0");
   $("#auto_eind").html("Geen auto");
 }
+
 
 
