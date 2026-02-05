@@ -65,7 +65,7 @@ function opvraging() {
     $.ajax({
         url: 'https://api.opencagedata.com/geocode/v1/json?',
         type: 'GET',
-        data: {q: $('#adres').val(), key: '5d51a489fc4d4fd7a2903677c45712bc'},
+        data: {q: $('#adres').val(), key: '09564429440943728ef3d84a862a7c2d'},
         dataType: 'json',
         success: function(response) {
             if(response.results.length > 0){
@@ -155,5 +155,6 @@ function weer_opvraging(latx, lony) {
 
         }
     })
+
 
 }
