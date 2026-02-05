@@ -1,0 +1,177 @@
+.logo_foto {
+  position: sticky;
+  top: 0;
+  background-color: #0e5952;
+  text-align: center;
+  z-index: -100;
+}
+
+.logo {
+  margin: 10px;
+  width: 300px;
+  height: 300px;
+  z-index: 1500;
+  top: 0;
+  position: absolute;
+  left: 0;
+}
+.foto {
+  width: 100%;
+  top: 0;
+}
+.titel {
+  position: absolute;
+  padding-left: 20px;
+  padding-top: 5px;
+}
+.navbarr {
+  position: sticky;
+  top: 0;
+  text-align: left;
+  padding: 10px;
+  background-color: #0e5952;
+  z-index: 1000;
+}
+
+.navbarr ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: left;
+}
+
+.navbarr li {
+  margin: 0 20px;
+  padding: 5px;
+}
+.navbarr li:hover {
+  text-decoration: underline #d1cfcf 2px;
+}
+.navbarr a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.content {
+  padding: 20px;
+  background-color: #f0e5c9;
+  z-index: 1000;
+  margin-bottom: 0;
+  margin-top: -13px;
+}
+
+.link {
+  color: #2e333d;
+  font-weight: bold;
+}
+
+.socials {
+  margin-bottom: 30px;
+  font-size: 150%;
+  text-align: center;
+}
+#fb {
+  cursor: pointer;
+}
+#fb:hover {
+  color: #0866ff;
+}
+#yt {
+  cursor: pointer;
+}
+#yt:hover {
+  color: #ef1b34;
+}
+
+#tw {
+  cursor: pointer;
+}
+#tw:hover {
+  color: black;
+}
+
+#in {
+  cursor: pointer;
+}
+#in:hover {
+  color: #f1437a;
+}
+
+.slide {
+  width: 500px;
+}
+
+.review {
+  background-color: white;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.ster {
+  color: #dbc953;
+}
+
+:root {
+  --bulma-primary-h: 174deg;
+  --bulma-primary-s: 73%;
+  --bulma-primary-l: 20%;
+  --bulma-info-h: 170deg;
+  --bulma-info-s: 88%;
+  --bulma-info-l: 44%;
+}
+
+.cont {
+  border: black solid;
+  height: 300px;
+}
+
+.box {
+  position: relative;
+  z-index: 800;
+}
+
+.auto_icons {
+  height: 30px;
+}
+
+#box_weer {
+  display: flex;
+  flex-direction: column;
+}
+
+#box_weer iframe {
+  flex-grow: 1;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+#geld_box {
+  border-radius: 7px;
+  padding-left: 15px;
+}
+
+#huurprijs {
+  font-weight: bold;
+}
+
+#map_box {
+  position: relative;
+  z-index: 1;
+  max-height: fit-content;
+}
+
+#map_info_box {
+  position: absolute;
+  z-index: 1000;
+  top: 10px;
+  right: 10px;
+  padding: 15px;
+  max-width: 250px;
+  max-height: fit-content;
+  cursor: default;
+}

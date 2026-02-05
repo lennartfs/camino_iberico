@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Camino Iberico" />
+    <link rel="manifest" href="site.webmanifest" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Camino Ibérico</title>
+    <link rel="stylesheet" href="roadtrip_info.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    />
+    <script src="roadtrip_project.js"></script>
+  </head>
+  <body>
+    <div class="logo_foto">
+      <img src="Camino.svg" class="logo" />
+      <img src="portugal_banner.jpg" class="foto" />
+    </div>
+    <nav class="navbarr" style="margin-bottom: 5px">
+      <div
+        class="columns is-gapless"
+        style="z-index: 1000; background-color: #0e5952"
+      >
+        <div class="column is-3">
+          <div class="titel">
+            <h1 class="subtitle is-3" style="color: white; font-weight: bold">
+              Camino Ibérico
+            </h1>
+          </div>
+        </div>
+        <div class="column is-9">
+          <nav class="navbarr">
+            <ul>
+              <li>
+                <a
+                  href="roadtrip_info.html"
+                  style="text-decoration: underline #d1cfcf 2px"
+                  ><p>Home</p></a
+                >
+              </li>
+              <li>
+                <a href="roadtrip_roadtrip.html"><p>Roadtrips</p></a>
+              </li>
+              <li>
+                <a href="roadtrip_contact.html"><p>Contact</p></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </nav>
+    <div class="content">
+      <div>
+        <div>
+          <h2 class="subtitle is-4">Wat?</h2>
+          <p style="text-align: justify; font-size: 130%">
+            Ontdek het Iberische schiereiland met de ultieme roadtrip!
+          </p>
+
+          <p style="text-align: justify; font-size: 130%">
+            Droomt u van een onvergetelijke reis door het adembenemende
+            Iberische schiereiland? Wij maken het mogelijk! Met onze zorgvuldig
+            samengestelde roadtrips beleeft u de vrijheid van de open weg,
+            terwijl u langs de mooiste steden, verborgen parels en adembenemende
+            landschappen rijdt.
+          </p>
+
+          <p style="text-align: justify; font-size: 130%">
+            Uw Roadtrip, Uw Keuze!
+          </p>
+          <p style="text-align: justify; font-size: 130%">
+            Kies één van onze roadtrips door aan te geven welke steden u wilt
+            ontdekken en wij zorgen voor de perfecte reis. Bovendien kunt u bij
+            ons een auto naar keuze reserveren, die bij aanvang van uw roadtrip
+            voor u klaarstaat.
+          </p>
+
+          <p style="text-align: justify; font-size: 130%">
+            Unieke bezienswaardigheden toevoegen? Geen Probleem!
+          </p>
+          <p style="text-align: justify; font-size: 130%">
+            Bent u tijdens uw reis nieuwe, bijzondere plekken tegengekomen? Deel
+            ze met anderen via onze Point of Interest Add-on en maak de
+            roadtripervaring nog beter voor toekomstige reizigers.
+          </p>
+
+          <p style="text-align: justify; font-size: 130%">Deel Uw Ervaring</p>
+          <p style="text-align: justify; font-size: 130%">
+            Wij horen graag hoe uw roadtrip was! Laat een recensie achter en
+            help ons onze service te verbeteren.
+          </p>
+
+          <p style="text-align: justify; font-size: 130%">
+            Klaar om het avontuur aan te gaan? Plan vandaag nog uw roadtrip!
+          </p>
+        </div>
+        <br />
+        <div class="columns is-gapless">
+          <div class="column is-3" style="margin: 0">
+            <img src="foto_sp1.jpg" class="slide" />
+          </div>
+          <div class="column is-3" style="margin: 0">
+            <img src="foto_p1.jpg" class="slide" />
+          </div>
+          <div class="column is-3" style="margin: 0">
+            <img src="foto_sp2.jpg" class="slide" />
+          </div>
+          <div class="column is-3" style="margin: 0">
+            <img src="foto_p2.jpg" class="slide" />
+          </div>
+        </div>
+        <div>
+          <h2 class="subtitle is-4">Hoe?</h2>
+          <p style="text-align: justify; font-size: 130%">
+            Bij "Roadtrips" kan je onze roadtrips zien en boeken. U geeft uw
+            contactgegevens mee (naam, familienaam, email, telefoon) en u kan
+            vertrekken! Wenst u bij ons een wagen te huren? Dan kan dat zeker! U
+            hoeft enkel dit aan te duiden en u kunt direct vertrekken!
+          </p>
+        </div>
+      </div>
+      <br />
+      <div class="recensies">
+        <h2 class="subtitle is-4">Reviews:</h2>
+        <div id="reviews">
+          <div class="review">
+            <p><b id="gebruiker">Gebruiker: </b>Persoon</p>
+            <p>
+              <b id="beoord">Beoordeling: </b>(<span class="ster" id="sterrekes"
+                ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+                ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+                ><i class="fa-solid fa-star"></i></span
+              >)
+            </p>
+            <p><b id="route">Route: </b>Barcelona-Marbella</p>
+            <p id="beschrijving">Zeer Goed</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

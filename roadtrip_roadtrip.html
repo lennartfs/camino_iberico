@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Camino Iberico" />
+    <link rel="manifest" href="site.webmanifest" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Camino Ibérico</title>
+    <link rel="stylesheet" href="roadtrip_info.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    />
+    <script src="roadtrip_project.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  </head>
+  <body>
+    <div class="logo_foto">
+      <img src="Camino.svg" class="logo" />
+      <img src="portugal_banner.jpg" class="foto" />
+    </div>
+    <nav class="navbarr" style="margin-bottom: 5px">
+      <div
+        class="columns is-gapless"
+        style="z-index: 1000; background-color: #0e5952"
+      >
+        <div class="column is-3">
+          <div class="titel">
+            <h1 class="subtitle is-3" style="color: white; font-weight: bold">
+              Camino Ibérico
+            </h1>
+          </div>
+        </div>
+        <div class="column is-9">
+          <nav class="navbarr">
+            <ul>
+              <li>
+                <a href="roadtrip_info.html"><p>Home</p></a>
+              </li>
+              <li>
+                <a
+                  href="roadtrip_roadtrip.html"
+                  style="text-decoration: underline #d1cfcf 2px"
+                  ><p>Roadtrips</p></a
+                >
+              </li>
+              <li>
+                <a href="roadtrip_contact.html"><p>Contact</p></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </nav>
+    <div class="content">
+      <h1 class="subtitle is-4">Vind je roadtrip!</h1>
+      <div class="columns">
+        <div class="column is-6">
+          <form class="box">
+            <div class="field">
+              <label class="label">Welke steden?</label>
+              <div class="columns">
+                <div class="column is-4">
+                  <div class="control">
+                    <input
+                      class="input is-primary"
+                      id="stad_1"
+                      onkeyup="complete_1()"
+                    />
+                  </div>
+                </div>
+                <div class="column is-4">
+                  <div class="control">
+                    <input
+                      class="input is-primary"
+                      id="stad_2"
+                      onkeyup="complete_2()"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="autocomplete_tags" class="tags">
+              <span
+                class="tag is-primary is-clickable"
+                onclick="vul_in('Barcelona')"
+                style="color: white"
+                >Barcelona</span
+              >
+              <span
+                class="tag is-primary is-clickable"
+                onclick="vul_in('Porto')"
+                style="color: white"
+                >Porto</span
+              >
+              <span
+                class="tag is-primary is-clickable"
+                onclick="vul_in('Marbella')"
+                style="color: white"
+                >Marbella</span
+              >
+            </div>
+          </form>
+          <div class="box">
+            <button
+              class="button is-primary is-fullwidth"
+              id="zoek1"
+              onclick="getroutes()"
+            >
+              <span style="color: white">Zoek!</span>
+            </button>
+          </div>
+        </div>
+        <div class="column is-6">
+          <div class="box" id="box_weer">
+            <iframe
+              src="weer_app/huidig_weer.html"
+              style="width: 100%; height: 300px"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+      <div class="box" id="map_box">
+        <div id="map_view" style="min-height: 500px; position: relative">
+          <div class="box" id="map_info_box">
+            <h3>Info:</h3>
+            <span class="text">Barcelona-Marbella</span>
+            <p>Dit kan je tegenkomen:</p>
+            poi poi
+          </div>
+        </div>
+      </div>
+      <h1 class="subtitle is-4">Wil je een roadtrip boeken?</h1>
+      <p>Duid hem aan op de kaart en vul onderstaand formulier in!</p>
+      <div class="columns">
+        <div class="column is-6">
+          <form class="box">
+            <div class="field">
+              <div class="columns">
+                <div class="column is-8">
+                  <label class="label">Gekozen Route:</label>
+                  <div class="box">
+                    <span id="gekozen_route"></span>
+                  </div>
+                  <br />
+                  <label class="label">Naam</label>
+                  <div class="control">
+                    <input class="input is-primary" id="boek_naam" />
+                  </div>
+                  <br />
+                  <label class="label">Voornaam</label>
+                  <div class="control">
+                    <input class="input is-primary" id="boek_voornaam" />
+                  </div>
+                  <br />
+                  <label class="label">E-mail</label>
+                  <div class="control">
+                    <input
+                      class="input is-primary"
+                      type="email"
+                      id="boek_email"
+                    />
+                  </div>
+                  <br />
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="box" style="margin-bottom: 0">
+            <p class="subtitle is-5">Dit is uw gekozen auto:</p>
+            <div class="box">
+              <span id="auto_eind"></span>
+            </div>
+            <div class="box" id="geld_box">
+              Huurprijs per dag: <b>€ </b><span id="huurprijs"></span>
+            </div>
+            <div
+              id="auto_show"
+              style="width: auto; height: auto; margin-top: 24px"
+            >
+              <img src="auto_fotos/ars6.jpg" />
+            </div>
+            <div>
+              <button
+                class="button is-primary"
+                onclick="geen_auto()"
+                style="color: white"
+              >
+                Liever geen auto.
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="column is-6">
+          <form class="box">
+            <div class="field">
+              <div class="columns">
+                <div class="column is-3">
+                  <label class="label">Type auto</label>
+                  <div class="select is-primary">
+                    <select id="type_auto" onclick="auto_opvraging()">
+                      <option class="lc_optie">Sedan</option>
+                      <option class="lc_optie">Break</option>
+                      <option class="lc_optie">Van</option>
+                      <option class="lc_optie">Sport</option>
+                      <option class="lc_optie">Coupé</option>
+                      <option class="lc_optie">Hatchback</option>
+                      <option class="lc_optie">Roadster</option>
+                      <option class="lc_optie">Pick-up</option>
+                      <option class="lc_optie">SUV</option>
+                      <option class="lc_optie">Cabrio</option>
+                    </select>
+                  </div>
+                </div>
+                <div
+                  class="column is-9"
+                  style="padding-top: 48px; padding-left: 0"
+                  id="type_foto"
+                >
+                  <img src="auto_icons/sedan.png" class="auto_icons" />
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="box">
+            <p class="subtitle is-5">
+              Deze auto's komen overeen met
+              <span id="gekozen_type">Sedan</span>:
+            </p>
+            <div>
+              <article class="panel is-info" id="autos">
+                <a class="panel-block" onclick="auto('Alfa Romeo  156 GTA')"
+                  >Alfa Romeo 156 GTA</a
+                >
+                <a class="panel-block" onclick="auto('Dodge Charger Hellcat')"
+                  >Dodge Charger Hellcat</a
+                >
+                <a
+                  class="panel-block"
+                  onclick="auto('Alfa Romeo  Guila Quadrifoglio')"
+                  >Alfa Romeo Guila Quadrifoglio</a
+                >
+                <a class="panel-block" onclick="auto('Volvo S60 B4 R')"
+                  >Volvo S60 B4 R</a
+                >
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column is-6">
+          <div class="box">
+            <button
+              class="button is-primary is-fullwidth"
+              id="boek"
+              onclick="boek_roadtrip()"
+              style="background-color: #f2be22"
+            >
+              <span style="color: white; font-size: 130%; font-weight: bold"
+                >Boek!</span
+              >
+            </button>
+          </div>
+        </div>
+        <div class="column is-6"></div>
+      </div>
+      <div class="columns">
+        <div class="column is-6">
+          <h1 class="subtitle is-4">
+            Wil je een recensie achterlaten van een route?
+          </h1>
+          <p style="font-size: 130%">
+            Dat kan! Duid eerst uw route aan en vul het formulier onder de kaart
+            in!
+          </p>
+          <div class="box">
+            <label class="label">Kies uw Route:</label>
+            <div class="select is-primary">
+              <select id="route_rev_naam" onclick="route_review()">
+                <option class="lc_optie">Barcelona-Marbella</option>
+                <option class="lc_optie">Sevilla-Albufeira</option>
+                <option class="lc_optie">Cascais-Porto</option>
+                <option class="lc_optie">San Sebastian-Vigo</option>
+                <option class="lc_optie">
+                  Zaragoza-Santiago de Compostella
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="column is-6">
+          <h1 class="subtitle is-4">
+            Iets leuks gezien tijdens je rit? Voeg je POI toe!
+          </h1>
+          <p style="font-size: 130%">
+            Dat kan! Duid eerst uw route aan op de kaart links
+          </p>
+          <p style="font-size: 130%">
+            Zet een punt door op de kaart te klikken op de locatie waar u iets
+            interessant bent tegengekomen!
+          </p>
+          <p style="font-size: 130%">
+            Geef het een naam en kies een onderwerp en druk op de knop!
+          </p>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column is-6">
+          <div class="box">
+            <div id="map_add" style="height: 500px"></div>
+          </div>
+        </div>
+        <div class="column is-6">
+          <div class="box">
+            <div id="lat"></div>
+            <div id="lon"></div>
+            <label class="label">Naam: </label>
+            <div class="control">
+              <input
+                class="input is-primary"
+                type="text"
+                id="toevoegen_naam_poi"
+              />
+            </div>
+            <br />
+            <label class="label">Wat was het? </label>
+            <div class="select is-primary">
+              <select id="poi_class">
+                <option class="lc_optie">Archeologische Opgraving</option>
+                <option class="lc_optie">Recreatief</option>
+                <option class="lc_optie">Bank</option>
+                <option class="lc_optie">Kampeerplek</option>
+                <option class="lc_optie">Caravanparkeerplaats</option>
+                <option class="lc_optie">Fort</option>
+                <option class="lc_optie">Monument</option>
+                <option class="lc_optie">Museum</option>
+                <option class="lc_optie">Park</option>
+                <option class="lc_optie">Ruïne</option>
+                <option class="lc_optie">Uitzichtpunt</option>
+                <option class="lc_optie">Waterput</option>
+              </select>
+            </div>
+            <br />
+            <br />
+            <button
+              class="button is-primary"
+              onclick="toevoegen_poi()"
+              style="color: white"
+            >
+              POI toevoegen
+            </button>
+            <br />
+            <br />
+            <div id="bericht_toevoegen"></div>
+          </div>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column is-6">
+          <form class="box">
+            <div class="field">
+              <div class="columns">
+                <div class="column is-8">
+                  <label class="label">Naam</label>
+                  <div class="control">
+                    <input class="input is-primary" id="rev_naam" />
+                  </div>
+                  <br />
+                  <label class="label">Voornaam</label>
+                  <div class="control">
+                    <input class="input is-primary" id="rev_voornaam" />
+                  </div>
+                  <br />
+                  <label class="label">Route</label>
+                  <div class="box" id="route_rev_box"></div>
+                  <br />
+                  <label class="label">Beoordeling:</label>
+                  <div style="color: #dbc953">
+                    <input type="hidden" id="rev_ster" name="rating" required />
+                    <div id="starRating">
+                      <span onclick="rate(1)"
+                        ><i class="fa-regular fa-star"></i
+                      ></span>
+                      <span onclick="rate(2)"
+                        ><i class="fa-regular fa-star"></i
+                      ></span>
+                      <span onclick="rate(3)"
+                        ><i class="fa-regular fa-star"></i
+                      ></span>
+                      <span onclick="rate(4)"
+                        ><i class="fa-regular fa-star"></i
+                      ></span>
+                      <span onclick="rate(5)"
+                        ><i class="fa-regular fa-star"></i
+                      ></span>
+                    </div>
+                  </div>
+                  <br />
+                  <label class="label">Beschrijving:</label>
+                  <div class="control">
+                    <input class="input is-primary" id="rev_bes" />
+                  </div>
+                  <br />
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="box">
+            <button
+              class="button is-primary is-fullwidth"
+              onclick="toevoegen_rev()"
+              style="color: white"
+            >
+              Toevoegen!
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
